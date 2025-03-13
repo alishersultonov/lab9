@@ -50,17 +50,79 @@ using namespace std;
 
 //Question 5
 
-void printDescending(int n) {
-    if (n == 0) return;
-    cout << n << " ";
-    printDescending(n - 1);
+// void printDescending(int n) {
+//     if (n == 0) return;
+//     cout << n << " ";
+//     printDescending(n - 1);
+// }
+//
+// int main() {
+//     int num;
+//     cout << "Enter a number : ";
+//     cin >> num;
+//     printDescending(num);
+//     cout << endl;
+//     return 0;
+// }
+
+
+//Question 6
+
+// int countDigits(int n) {
+//     if (n == 0) return 0;
+//     return 1 + countDigits(n / 10);
+// }
+// int main() {
+//     int num;
+//     cout << "Enter a number: ";
+//     cin >> num;
+//     cout << "The number of digits is: " << countDigits(num) << endl;
+//     return 0;
+// }
+
+//Question 7
+
+// int sumOfDigits(int n) {
+//     if (n == 0) return 0;
+//     return (n % 10) + sumOfDigits(n / 10);
+// }
+//
+// int main() {
+//     int num;
+//     cout << "Enter a number: ";
+//     cin >> num;
+//     cout << "The sum of digits is: " << sumOfDigits(num) << endl;
+//     return 0;
+// }
+
+
+//Question 8
+
+// int power(int x, int y) {
+//     if (y == 0) return 1;
+//     return x * power(x, y - 1);
+// }
+//
+// int main() {
+//     int x, y;
+//     cout << "Enter base (x) and exponent (y): ";
+//     cin >> x >> y;
+//     cout << x << " raised to the power of " << y << " is: " << power(x, y) << endl;
+//     return 0;
+// }
+
+//Question 9
+
+int reverseNumber(int n, int rev = 0) {
+    if (n == 0) return rev;
+    return reverseNumber(n / 10, rev * 10 + n % 10);
 }
 
 int main() {
     int num;
-    cout << "Enter a number : ";
+    cout << "Enter a number to reverse its digits: ";
     cin >> num;
-    printDescending(num);
-    cout << endl;
+    cout << "The reversed number is: " << reverseNumber(num) << endl;
     return 0;
 }
+
