@@ -113,16 +113,34 @@ using namespace std;
 
 //Question 9
 
-int reverseNumber(int n, int rev = 0) {
-    if (n == 0) return rev;
-    return reverseNumber(n / 10, rev * 10 + n % 10);
+// int reverseNumber(int n, int rev = 0) {
+//     if (n == 0) return rev;
+//     return reverseNumber(n / 10, rev * 10 + n % 10);
+// }
+//
+// int main() {
+//     int num;
+//     cout << "Enter a number to reverse its digits: ";
+//     cin >> num;
+//     cout << "The reversed number is: " << reverseNumber(num) << endl;
+//     return 0;
+// }
+
+//Question 10
+
+bool isPalindromeHelper(int n, int rev) {
+    if (n == 0) return n == rev;
+    return isPalindromeHelper(n / 10, rev * 10 + n % 10);
+}
+
+bool isPalindrome(int n) {
+    return n == reverseNumber(n);
 }
 
 int main() {
     int num;
-    cout << "Enter a number to reverse its digits: ";
+    cout << "Enter a number to check if it's a palindrome: ";
     cin >> num;
-    cout << "The reversed number is: " << reverseNumber(num) << endl;
+    cout << (isPalindrome(num) ? "The number is a palindrome." : "The number is not a palindrome.") << endl;
     return 0;
 }
-
