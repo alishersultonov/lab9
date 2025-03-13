@@ -128,19 +128,40 @@ using namespace std;
 
 //Question 10
 
-bool isPalindromeHelper(int n, int rev) {
-    if (n == 0) return n == rev;
-    return isPalindromeHelper(n / 10, rev * 10 + n % 10);
+// bool isPalindromeHelper(int n, int rev) {
+//     if (n == 0) return n == rev;
+//     return isPalindromeHelper(n / 10, rev * 10 + n % 10);
+// }
+//
+// bool isPalindrome(int n) {
+//     return n == reverseNumber(n);
+// }
+//
+// int main() {
+//     int num;
+//     cout << "Enter a number to check if it's a palindrome: ";
+//     cin >> num;
+//     cout << (isPalindrome(num) ? "The number is a palindrome." : "The number is not a palindrome.") << endl;
+//     return 0;
+// }
+
+//Question 11
+
+bool isPrimeHelper(int n, int i) {
+    if (i * i > n) return true;
+    if (n % i == 0) return false;
+    return isPrimeHelper(n, i + 1);
 }
 
-bool isPalindrome(int n) {
-    return n == reverseNumber(n);
+bool isPrime(int n) {
+    if (n < 2) return false;
+    return isPrimeHelper(n, 2);
 }
 
 int main() {
     int num;
-    cout << "Enter a number to check if it's a palindrome: ";
+    cout << "Enter a number to check if it's prime: ";
     cin >> num;
-    cout << (isPalindrome(num) ? "The number is a palindrome." : "The number is not a palindrome.") << endl;
+    cout << (isPrime(num) ? "The number is prime." : "The number is not prime.") << endl;
     return 0;
 }
